@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>访谈记录</title>
+<style type="text/css"> 
+table {border:1px solid #000;}
+body,table{ 
+font-size:12px; 
+} 
+table{ 
+table-layout:fixed; 
+empty-cells:show; 
+border-collapse: collapse; 
+margin:0 auto; 
+} 
+td{ 
+height:30px; 
+} 
+h1,h2,h3{ 
+font-size:12px; 
+margin:0; 
+padding:0; 
+} 
+.table{ 
+border:1px solid #cad9ea; 
+color:#666; 
+} 
+.table th { 
+background-repeat:repeat-x; 
+height:30px; 
+} 
+.table td,.table th{ 
+border:1px solid #cad9ea; 
+padding:0 1em 0; 
+} 
+.table tr.alter{ 
+background-color:#f5fafe; 
+} 
+iframe{margin:40px;}
+</style>
+</head>
+<body>
+<table class='table'>
+<tr>
+	<th>记录时间</th>
+	<th>原始记录下载</th>
+	<th>详细内容</th>
+</tr>
+{% for report in report_list %}
+	<tr>
+	<td>{{report.time}}</td>
+	<td><a href="{{report.origin.url}}">右键链接另存为</a></td>
+	<td><a href="{% url 'report_detail' report.id%}" target="show_frame">查看</a></td>
+	</tr>
+{% endfor %}
+</table>
+<iframe src="{% url 'report_empty' %}" name="show_frame" width='90%' height='800px'></iframe>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>你还记得吗？</title>
+<!--<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+
+<script type='text/javascript'>
+$(document).ready(function(){
+{%for i in indexlist%}
+$('#single{{i}}').click(function(){
+$('#fillin').val($('#fillin').val()+$('#single{{i}}').text());
+});
+{%endfor%}
+});
+</script>
+</head>
+
+<body>
+<h2>{{title}}</h2>
+{%for p in plist%}
+{%if p == ' '%}
+<input type="text" id='fillin' />
+{%else%}
+<div>{{p}}</div>
+{%endif%}
+{%endfor%}
+<br />
+<div class='answer' style='display:none'>{{answer}}</div>
+
+{%for a in guesslist%}
+<button class='guess' id='single{{forloop.counter0}}'>{{a}}</button>
+{%endfor%}
+</body>
+
+</html>

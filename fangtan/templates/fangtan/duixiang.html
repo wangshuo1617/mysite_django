@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>访谈对象集</title>
+<style type='text/css'>
+table {border:1px solid #000;}
+body,table{ 
+font-size:12px; 
+} 
+table{ 
+table-layout:fixed; 
+empty-cells:show; 
+border-collapse: collapse; 
+margin:0 auto; 
+} 
+td{ 
+height:30px;
+} 
+h1,h2,h3{ 
+font-size:12px; 
+margin:0; 
+padding:0; 
+} 
+.table{ 
+border:1px solid #cad9ea; 
+color:#666; 
+} 
+.table th { 
+background-repeat:repeat-x; 
+height:30px; 
+} 
+.table td,.table th{ 
+border:1px solid #cad9ea; 
+padding:0 1em 0; 
+} 
+.table tr.alter{ 
+background-color:#f5fafe; 
+} 
+</style>
+</head>
+<body>
+<table class='table'>
+<tr>
+	<th>姓名</th>
+	<th>性别</th>
+	<th>学校</th>
+	<th>专业</th>
+	<th>年级</th>
+	<th>家乡</th>
+	<th>标签</th>
+	<th>收入水平</th>
+	<th>其他信息</th>
+	<th>具体报告</th>
+</tr>
+{% for duixiang in duixiang_list %}
+	<tr>
+	<td>{{duixiang.name}}</td>
+	<td>{{duixiang.get_sex_display}}</td>
+	<td>{{duixiang.university}}</td>
+	<td>{{duixiang.major}}</td>
+	<td>{{duixiang.get_grade_display}}</td>
+	<td>{{duixiang.homeland}}</td>
+	<td>{{duixiang.label}}</td>
+	<td>{{duixiang.get_income_display}}</td>
+	<td>{{duixiang.elseinfo}}</td>
+	<td><a href="{% url 'report_list' duixiang.id%}" target="_blank">点击查看</td>
+	</tr>
+{% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>你还记得吗？</title>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type='text/javascript'>
+$(document).ready(function(){
+$("#answer").click(function(){
+$(".answer").show();
+});
+var i=0;
+function newquestion(){
+$.get('{%url 'random_poem'%}',function(result){
+$('.container').html(result);
+});
+};
+$('#sumbit').click(function(){
+if($('#fillin').val()==$('.answer').text()){
+i=i+1;
+alert('正确');
+$('#result').text(i);
+newquestion();
+}
+else{
+alert('错误，重新开始');
+i=0;
+$('#result').text('0');
+newquestion();
+};
+});
+
+$('#skip').click(function(){
+newquestion();
+});
+newquestion();
+});
+</script>
+
+</head>
+<body>
+<div class="container"></div>
+<!--<button class='button' id='answer'>查看答案</button>-->
+<button class='button' id='sumbit'>提交</button>
+<button class='button' id='skip'>跳过</button>
+<div>正确数：<b><span id='result'>0</span></b></div>
+<br />
+<br />
+</body>
+</html>
