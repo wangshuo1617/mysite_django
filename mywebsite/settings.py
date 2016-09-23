@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'fangtan',
     'data',
     'poem',
+    'wxtj',
 )
 
 MIDDLEWARE_CLASSES = (

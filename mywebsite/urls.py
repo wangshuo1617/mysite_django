@@ -4,6 +4,7 @@ from blog import views as blog_views
 from fangtan import views as fangtan_views
 from data import views as data_views
 from poem import views as poem_views
+from wxtj import views as wxtj_views
 admin.autodiscover()
 
 urlpatterns =[
@@ -21,4 +22,5 @@ urlpatterns =[
     url(r'^data/$',data_views.user,name='user'),
     url(r'^poem/random/$',poem_views.random_poem,name='random_poem'),
     url(r'^poem/test/$',poem_views.test,name='test'),
+    url(r'^wxtj/',wxtj_views.wxtj,name='wxtj'),
 ]

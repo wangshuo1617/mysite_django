@@ -56,7 +56,3 @@ def report_detail(request,report_id):
 
 def report_empty(request):
     return HttpResponse(u'<h1>No message</h1>')
-    
-
-    
-    
